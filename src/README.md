@@ -1,11 +1,38 @@
-# Source Code
-This directory contains the core source code for the project which is used in the experiments. The two files are described below.
+# Source Code Directory (`src/`)
 
-## predecoders.py
-This file contains the implementations for the Clique and Pinball predecoders and is designed to (hopefully) be extended with new predecoders in the future. A generic `Predecoder` class is provided as a template specifying the expected functions to be implemented by a given predecoder. Any predecoder must inherit or implement its own version of the `decode_batch()`, `decode()`, and `is_logical_error()` functions. 
+This directory contains the core Python source code for the entire project, which is utilized by the experiment scripts in the `experiments/` directory. The two primary files are described below.
 
-`decode_batch()` orchestrates decoding over a set of syndromes (typically $d$ rounds for code distance $d$), whereas `decode()` performs decoding over a pair of consecutive rounds. In both the Clique and Pinball predecoders, `decode_batch()` slides across the batch of $d$ rounds, two at a time, and calls `decode()` on each pair of syndrome rounds. Following decoding of a batch of syndromes, `is_logical_error()` can be used to compare the set of errors that occurred or the state of the Stim circuit's logical observable with the set of corrections produced by the predecoder to verify if a logical error was introduced. More details can be found in the respective functions within each predecoder's class definition.
+---
 
+## `predecoders.py`
 
-## utils.py
-This file contains useful utility functions related to running experiments, including constructing the Stim circuit to simulate for a given set of experimental parameters as well as the logic needed to sample data from that circuit.
+This file contains the core logic and implementations for the Clique and Pinball predecoders. It is designed to be easily extensible to include new predecoders in the future.
+
+### Generic `Predecoder` Class
+
+A generic `Predecoder` class is provided as a foundational template. Any new predecoder implementation must inherit from this class or implement its own versions of the following three required functions:
+
+* `decode_batch()`
+* `decode()`
+* `is_logical_error()`
+
+### Functionality Details
+
+| Function | Description |
+| :--- | :--- |
+| `decode_batch()` | Orchestrates the entire decoding process over a batch of syndromes (typically $d$ rounds for a code distance $d$). |
+| `decode()` | Executes the fundamental predecoding logic over a pair of **consecutive syndrome rounds**. |
+| `is_logical_error()` | Verifies if a logical error has occurred by comparing the set of corrections produced by the predecoder against the actual errors that occurred or the state of the Stim circuit's logical observable. |
+
+> **Process Flow:** In both the Clique and Pinball implementations, `decode_batch()` sequentially slides across the batch of $d$ rounds, two at a time, and calls `decode()` on each pair of syndrome rounds.
+
+More specific implementation details can be found in the respective function definitions within each predecoder's class.
+
+---
+
+## `utils.py`
+
+This file contains essential utility functions related to running and setting up experiments, including:
+
+* Logic for constructing the Stim circuit to simulate, based on a given set of experimental parameters.
+* Functions needed to sample data (e.g., syndromes, errors, logical observables) directly from that constructed circuit.
