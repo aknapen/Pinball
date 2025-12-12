@@ -8,7 +8,7 @@ This repository contains the source code for the Pinball predecoder, a cryogenic
 git clone git@github.com:aknapen/Pinball.git
 ```
 
-2. Install the required Python dependencies within your Python environment using:
+2. Install the required Python dependencies within your Python environment. **Note**: the [qLDPC](https://github.com/qLDPCOrg/qLDPC) package requires Python>=3.10.
 
 ```
 pip install requirements.txt
@@ -16,7 +16,7 @@ pip install requirements.txt
 
 ## Repository Organization
 The repository is organized into the following three directories:
-- `src/`: core source code for the Pinball and CLique predecoder implementations as well as some utility functions.
+- `src/`: core Python source code for functionally modeling the Pinball and Clique predecoder implementations as well as some utility functions.
 
 - `experiments/`: code for running experiments to reproduce key results from the paper.
 
