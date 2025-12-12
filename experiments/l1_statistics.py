@@ -74,6 +74,8 @@ def sim(args: Args):
     return (logical_errors, num_complex)
 
 def run_simulation(distances, error_rates, predecoder, num_shots, output_dir):
+    print("Running L1 statistics simulation...\n")
+
     for d in distances:
         num_circuit_rounds = d
 

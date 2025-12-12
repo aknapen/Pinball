@@ -122,6 +122,8 @@ def sim(args: SimArgs):
     return distribution
 
 def run_simulation(distances, error_rates, num_shots, output_dir):
+    print("Running chain length distribution simulation...\n")
+
     for i, d in enumerate(distances):
         # Make sure the simulation output directory exists
         dirname = output_dir + f"d={d}/"

@@ -21,7 +21,7 @@ Details about Pinball and its performance can be found in [the comprehensive arX
     > **⚠️ Note:** The required [qLDPC](https://github.com/qLDPCOrg/qLDPC) package imposes a minimum requirement of **Python >= 3.10**.
 
     ```bash
-    pip install requirements.txt
+    pip install -r requirements.txt
     ```
 
 3. **Verify Setup:** Run the following code to execute a minimum working example simulation. If set up properly, results should be available in `./experiments/stats/logical_error_rate/d=3/`.
