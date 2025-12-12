@@ -1,0 +1,14 @@
+# Metadata
+This directory contains different pieces of metadata that are useful for speeding up simulations. Brief explanations for each are provided below. **Note:** since only Z errors are simulated, the translations specified below are only valid for detectors corresponding to $X$ ancilla qubits and circuit errors that flip those detectors.
+
+## detectors_to_syndromes_map.pkl
+The Pinball and Clique predecoders expect syndromes to be organized into a flat numpy array organized in row-major order. Unfortunatley, this organization is different from the ordering of detectors specified in the default surface code Stim circuits, so a translation needs to be made from Stim detectors to their corresponding position within the syndromes array supplied to the predecoder. This file contains the Python dictionary that performs this mapping, i.e,. `detectors_to_syndromes_map[detector_id] -> (syndrome_round, index_within_round)`.
+
+## errors_to_qubits_map.pkl
+For verification purposes, it is often useful to know, for a given Stim circuit sample, exactly which data qubits were flipped such that these can be compared with the data qubits that were assigned corrections by the predecoder. However, when taking a Stim circuit sample, Stim only returns error IDs corresponding to error instructions within the circuit's detector error model. From this error ID, it is possible to determine where and when in the Stim circuit the error occurred, but this is not necessarily the same as determining which data qubits were flipped (take the hook error example, which originates as an error on an *ancilla* qubit but eventually flips two *data* qubits). This file contains a Python dictionary to perform the mapping from Stim error IDs to the list of data qubits they flip, i.e., `errors_to_qubits_map[error_id] -> ([rounds], [qubit_indices_within_rounds])`.
+
+## errors_to_dem_components.pkl
+For the `error_frequency_distribution.py` experiment, different Stim errors are categorized into error classes by the relative spatial and temporal positioning between the pairs of flipped detectors in the decoding graph. This file contains a Python dictionary providing the translation from a Stim error ID to the spatial and temporal components of this difference in position. For example, time-like errors have a spatial component of 0 and a temporal component of 1, so for a time-like error, the dictionary will return `errors_to_dem_components[error_id] -> (0, 1)`. 
+
+## errors_to_detectors.pkl
+For the `chain_length_distribution.py` experiment, we need to associate individual errors that occurred in Stim circuit sample with the set of detectors they flipped. Then, to form chains across multiple errors, we just need to check which errors share a common detector and link them together. Hence, this file contains a Python dictionary that maps a Stim error to the set of detectors that it flips, i.e., `errors_to_detectors[error_id] -> [detector_ids]`.

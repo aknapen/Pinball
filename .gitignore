@@ -1,0 +1,4 @@
+.venv/
+stats/
+results/
+__pycache__/

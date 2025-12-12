@@ -1,0 +1,8 @@
+{
+    "distances": [15],
+    "error_rates": [0.001],
+    "predecoder": "None",
+    "num_shots": 100000,
+    "output_dir": "stats/",
+    "sim_id": 0
+}
