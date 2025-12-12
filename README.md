@@ -24,6 +24,13 @@ Details about Pinball and its performance can be found in [the comprehensive arX
     pip install requirements.txt
     ```
 
+3. **Verify Setup:** Run the following code to execute a minimum working example simulation. If set up properly, results should be available in `./experiments/stats/logical_error_rate/d=3/`.
+
+    ```bash
+    cd experiments
+    python3 logical_error_rate.py -d 3 -e 0.0001 0.001 0.01 -p Pinball -n 100000
+    ```
+
 ---
 
 ## 📂 Repository Organization
