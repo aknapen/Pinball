@@ -172,7 +172,7 @@ def parse_simulation_args():
     parser.add_argument("-f", "--arg_file", help="Path to JSON file containing simulation arguments")
     parser.add_argument("-d", "--distances", help="Code distances to simulate", nargs="*")
     parser.add_argument("-e", "--error_rates", help="Physical error rates to simulate", nargs="*")
-    parser.add_argument("-l1", "--predecoder", help="Predecoder to simulate", 
+    parser.add_argument("-p", "--predecoder", help="Predecoder to simulate", 
                         choices=["Clique", "Pinball", "None"],
                         default="Pinball")
     parser.add_argument("-n", "--num_shots", type=int, default=100000,
