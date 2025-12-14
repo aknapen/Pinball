@@ -42,6 +42,7 @@ The project is organized into three main directories for clarity:
 | `src/` | Core Python source code for functionally modeling the **Pinball** and **Clique** predecoder implementations, along with essential utility functions. |
 | `experiments/` | Scripts and code for running simulations and experiments to reproduce key results and figures from the paper. |
 | `metadata/` | Useful configuration files and static data/metadata used across the different experiments. |
+| `verilog/` | Verilog design files for the hardware implementation of Pinball.
 
 More detailed information, including specific usage instructions, is provided in the respective `README` files within each directory.
 
