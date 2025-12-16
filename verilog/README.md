@@ -6,7 +6,7 @@ This directory contains the SystemVerilog design files specifying Pinball's hard
 
 ## `pinball.sv`
 
-This is the top-level module for Pinball which specifies the contorl signal flow through the pipeline architecture. The stages in this file correspond to the predecoding stages described in the paper.
+This is the top-level module for Pinball which specifies the control signal flow through the pipeline architecture. The stages in this file correspond to the predecoding stages described in the paper.
 
 ## `leaf_decode.sv`
 
