@@ -56,3 +56,21 @@ For experiments requiring significant computational resources (e.g., those needi
 
 * Multithreading support is included out-of-the-box using `Pools` from Python's built-in `multiprocessing` library.
 * The original experiments used for the paper still required many hours to complete, even when utilizing 256 threads. It is recommended to run such experiments on a machine with many available cores.
+
+---
+
+## 📖 Citation
+
+If find this work useful in your own work, please cite our paper:
+
+```bibtex
+@misc{knapen2025pinballcryogenicpredecodersurface,
+      title={Pinball: A Cryogenic Predecoder for Surface Code Decoding Under Circuit-Level Noise}, 
+      author={Alexander Knapen and Guanchen Tao and Jacob Mack and Tomas Bruno and Mehdi Saligane and Dennis Sylvester and Qirui Zhang and Gokul Subramanian Ravi},
+      year={2025},
+      eprint={2512.09807},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2512.09807}, 
+}
+```
