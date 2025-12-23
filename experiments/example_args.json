@@ -1,7 +1,7 @@
 {
-    "distances": [15],
+    "distances": [5],
     "error_rates": [0.001],
-    "predecoder": "None",
+    "predecoder": "Pinball",
     "num_shots": 100000,
     "output_dir": "stats/",
     "sim_id": 0
